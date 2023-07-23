@@ -1,0 +1,16 @@
+
+.container {
+    width: 350px;
+    color: #314d3e;
+  }
+
+img{
+  width: 100%;
+}
+.title{
+  font-size: 16px;
+  text-align: center;
+  color: rgb(0, 115, 178);
+  font-weight: bold;
+  margin: 10px;
+}

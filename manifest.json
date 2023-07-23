@@ -1,0 +1,27 @@
+{
+  "manifest_version":3,
+  "name": "Linkedin Learning Downloader",
+  "version": "0.1.0",
+  "description": "Downloading linkedin lerning video",
+  "permissions": ["tabs"],
+  "host_permissions": ["https://www.linkedin.com/learning/*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/learning/*/*"],
+      "js": ["contentScript.js"],
+      "css":["lld.css"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
+    },
+    "default_title": "Linkedin Learning Downloader",
+    "default_popup": "popup.html"
+  }  
+}
