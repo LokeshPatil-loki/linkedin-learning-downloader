@@ -7,7 +7,7 @@
             console.log("Video: ", video);
             console.log("-------------------------");
             if(course && video)
-                videoPageLoaded(video);
+                videoPageLoaded();
             else
                 console.log("lld-error");
         }else{
@@ -15,13 +15,13 @@
         }
     });
 
-    const videoPageLoaded = async (title) => {
+    
+    const videoPageLoaded = async () => {
         const downloadBtnExists = document.querySelector(".download-video");
         if(!downloadBtnExists){
             const downloadBtn = document.createElement("button");
             downloadBtn.className = "download-video";
             downloadBtn.innerText = "Download";
-            downloadBtn.title = title;
             downloadBtn.addEventListener("click",downloadVideo);
             const timeContronVideoJs = document.querySelector(".vjs-time-display.vjs-control");
             timeContronVideoJs.append(downloadBtn);
@@ -30,7 +30,7 @@
 
     const downloadVideo = async (e) => {
         const url = document.querySelector(".vjs-tech").src;
-        const filename = e.target.title + ".mp4";
+        const filename = document.querySelector("title").innerHTML.replaceAll("\n","").trim().replaceAll(" ","-");
         console.log(`Downloading ${filename}`);
         e.target.disabled = true;
         await Download(url,filename);
